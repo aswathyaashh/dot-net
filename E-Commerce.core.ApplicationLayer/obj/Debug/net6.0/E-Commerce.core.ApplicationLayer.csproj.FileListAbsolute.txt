@@ -1,0 +1,17 @@
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\bin\Debug\net6.0\E-Commerce.core.ApplicationLayer.deps.json
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\bin\Debug\net6.0\E-Commerce.core.ApplicationLayer.runtimeconfig.json
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\bin\Debug\net6.0\E-Commerce.core.ApplicationLayer.dll
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\bin\Debug\net6.0\E-Commerce.core.ApplicationLayer.pdb
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\bin\Debug\net6.0\E-Commerce.core.DomainLayer.dll
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\bin\Debug\net6.0\E-Commerce.core.DomainLayer.pdb
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\obj\Debug\net6.0\E-Commerce.core.ApplicationLayer.csproj.AssemblyReference.cache
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\obj\Debug\net6.0\E-Commerce.core.ApplicationLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\obj\Debug\net6.0\E-Commerce.core.ApplicationLayer.AssemblyInfoInputs.cache
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\obj\Debug\net6.0\E-Commerce.core.ApplicationLayer.AssemblyInfo.cs
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\obj\Debug\net6.0\E-Commerce.core.ApplicationLayer.csproj.CoreCompileInputs.cache
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\obj\Debug\net6.0\E-Commerce.core.ApplicationLayer.csproj.CopyComplete
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\obj\Debug\net6.0\E-Commerce.core.ApplicationLayer.dll
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\obj\Debug\net6.0\refint\E-Commerce.core.ApplicationLayer.dll
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\obj\Debug\net6.0\E-Commerce.core.ApplicationLayer.pdb
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\obj\Debug\net6.0\E-Commerce.core.ApplicationLayer.genruntimeconfig.cache
+D:\TeamProject\E-Commerce\E-Commerce.core.ApplicationLayer\obj\Debug\net6.0\ref\E-Commerce.core.ApplicationLayer.dll

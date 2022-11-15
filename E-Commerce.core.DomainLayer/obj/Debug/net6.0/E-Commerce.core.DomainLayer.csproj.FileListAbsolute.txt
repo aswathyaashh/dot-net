@@ -1,0 +1,14 @@
+D:\TeamProject\E-Commerce\E-Commerce.core.DomainLayer\bin\Debug\net6.0\E-Commerce.core.DomainLayer.deps.json
+D:\TeamProject\E-Commerce\E-Commerce.core.DomainLayer\bin\Debug\net6.0\E-Commerce.core.DomainLayer.runtimeconfig.json
+D:\TeamProject\E-Commerce\E-Commerce.core.DomainLayer\bin\Debug\net6.0\E-Commerce.core.DomainLayer.dll
+D:\TeamProject\E-Commerce\E-Commerce.core.DomainLayer\bin\Debug\net6.0\E-Commerce.core.DomainLayer.pdb
+D:\TeamProject\E-Commerce\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.csproj.AssemblyReference.cache
+D:\TeamProject\E-Commerce\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\TeamProject\E-Commerce\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.AssemblyInfoInputs.cache
+D:\TeamProject\E-Commerce\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.AssemblyInfo.cs
+D:\TeamProject\E-Commerce\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.csproj.CoreCompileInputs.cache
+D:\TeamProject\E-Commerce\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.dll
+D:\TeamProject\E-Commerce\E-Commerce.core.DomainLayer\obj\Debug\net6.0\refint\E-Commerce.core.DomainLayer.dll
+D:\TeamProject\E-Commerce\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.pdb
+D:\TeamProject\E-Commerce\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.genruntimeconfig.cache
+D:\TeamProject\E-Commerce\E-Commerce.core.DomainLayer\obj\Debug\net6.0\ref\E-Commerce.core.DomainLayer.dll
