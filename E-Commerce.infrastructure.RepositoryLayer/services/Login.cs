@@ -29,16 +29,17 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
             LoginModel? loginModel = _admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId);
             if(loginModel==null)
             {
-                return "username not ffound";
+                return "Username not found";
             }
-            else if(loginModel.password==login.password)
+            else if(loginModel.password!=login.password)
             {
-                
-                return CreateToken(login);
+
+                return "Password not found";
+               
             }
-            return "";
-            
-            
+            //return "";
+
+            return CreateToken(login);
         }
 
         private string CreateToken(LoginModel user)

@@ -2,6 +2,35 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "AutoMapper/12.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.0": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "12.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "Azure.Core/1.24.0": {
         "type": "package",
         "dependencies": {
@@ -42,6 +71,22 @@
         },
         "runtime": {
           "lib/netstandard2.0/Azure.Identity.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Castle.Core/5.1.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Diagnostics.EventLog": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Castle.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Castle.Core.dll": {
             "related": ".xml"
           }
         }
@@ -775,6 +820,22 @@
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
         }
       },
+      "Moq/4.18.2": {
+        "type": "package",
+        "dependencies": {
+          "Castle.Core": "5.1.0"
+        },
+        "compile": {
+          "lib/net6.0/Moq.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Moq.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "NPOI/2.5.6": {
         "type": "package",
         "dependencies": {
@@ -1068,6 +1129,32 @@
         "runtime": {
           "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {
             "related": ".xml"
+          }
+        }
+      },
+      "System.Diagnostics.EventLog/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/System.Diagnostics.EventLog.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Diagnostics.EventLog.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/System.Diagnostics.EventLog.Messages.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          },
+          "runtimes/win/lib/net6.0/System.Diagnostics.EventLog.dll": {
+            "assetType": "runtime",
+            "rid": "win"
           }
         }
       },
@@ -1515,8 +1602,10 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
           "E-Commerce.core.DomainLayer": "1.0.0",
-          "Microsoft.Extensions.Identity.Core": "7.0.0"
+          "Microsoft.Extensions.Identity.Core": "7.0.0",
+          "Moq": "4.18.2"
         },
         "compile": {
           "bin/placeholder/E-Commerce.core.ApplicationLayer.dll": {}
@@ -1529,10 +1618,12 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
           "EntityFramework": "6.4.4",
           "Microsoft.EntityFrameworkCore": "7.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0",
-          "Microsoft.Extensions.Identity.Core": "7.0.0"
+          "Microsoft.Extensions.Identity.Core": "7.0.0",
+          "Moq": "4.18.2"
         },
         "compile": {
           "bin/placeholder/E-Commerce.core.DomainLayer.dll": {}
@@ -1545,12 +1636,13 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
           "E-Commerce.core.ApplicationLayer": "1.0.0",
-          "E-Commerce.core.DomainLayer": "1.0.0",
           "EntityFramework": "6.4.4",
           "Microsoft.EntityFrameworkCore": "7.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0",
           "Microsoft.Extensions.Identity.Core": "7.0.0",
+          "Moq": "4.18.2",
           "NPOI": "2.5.6"
         },
         "compile": {
@@ -1563,6 +1655,35 @@
     }
   },
   "libraries": {
+    "AutoMapper/12.0.0": {
+      "sha512": "0Rmg0zI5AFu1O/y//o9VGyhxKjhggWpk9mOA1tp0DEVx40c61bs+lnQv+0jUq8XbniF7FKgIVvI1perqiMtLrA==",
+      "type": "package",
+      "path": "automapper/12.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.12.0.0.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.dll",
+        "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/12.0.0": {
+      "sha512": "XCJ4E3oKrbRl1qY9Mr+7uyC0xZj1+bqQjmQRWTiTKiVuuXTny+7YFWHi20tPjwkMukLbicN6yGlDy5PZ4wyi1w==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/12.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
     "Azure.Core/1.24.0": {
       "sha512": "+/qI1j2oU1S4/nvxb2k/wDsol00iGf1AyJX5g3epV7eOpQEP/2xcgh/cxgKMeFgn3U2fmgSiBnQZdkV+l5y0Uw==",
       "type": "package",
@@ -1599,6 +1720,30 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "Castle.Core/5.1.0": {
+      "sha512": "31UJpTHOiWq95CDOHazE3Ub/hE/PydNWsJMwnEVTqFFP4WhAugwpaVGxzOxKgNeSUUeqS2W6lxV+q7u1pAOfXg==",
+      "type": "package",
+      "path": "castle.core/5.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ASL - Apache Software Foundation License.txt",
+        "CHANGELOG.md",
+        "LICENSE",
+        "castle-logo.png",
+        "castle.core.5.1.0.nupkg.sha512",
+        "castle.core.nuspec",
+        "lib/net462/Castle.Core.dll",
+        "lib/net462/Castle.Core.xml",
+        "lib/net6.0/Castle.Core.dll",
+        "lib/net6.0/Castle.Core.xml",
+        "lib/netstandard2.0/Castle.Core.dll",
+        "lib/netstandard2.0/Castle.Core.xml",
+        "lib/netstandard2.1/Castle.Core.dll",
+        "lib/netstandard2.1/Castle.Core.xml",
+        "readme.txt"
       ]
     },
     "EntityFramework/6.4.4": {
@@ -2679,6 +2824,26 @@
         "mono.texttemplating.nuspec"
       ]
     },
+    "Moq/4.18.2": {
+      "sha512": "SjxKYS5nX6prcaT8ZjbkONh3vnh0Rxru09+gQ1a07v4TM530Oe/jq3Q4dOZPfo1wq0LYmTgLOZKrqRfEx4auPw==",
+      "type": "package",
+      "path": "moq/4.18.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/Moq.dll",
+        "lib/net462/Moq.xml",
+        "lib/net6.0/Moq.dll",
+        "lib/net6.0/Moq.xml",
+        "lib/netstandard2.0/Moq.dll",
+        "lib/netstandard2.0/Moq.xml",
+        "lib/netstandard2.1/Moq.dll",
+        "lib/netstandard2.1/Moq.xml",
+        "moq.4.18.2.nupkg.sha512",
+        "moq.nuspec",
+        "moq.png"
+      ]
+    },
     "NPOI/2.5.6": {
       "sha512": "xQfr09LZN3fr4rjSuV3li+WJUo2LiSg00IUtnomzrKO51zhhavyIgvbZ1f8c8zwHXvRbFc1JB4PNZpxqyxizWw==",
       "type": "package",
@@ -3235,6 +3400,37 @@
         "system.diagnostics.diagnosticsource.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "System.Diagnostics.EventLog/6.0.0": {
+      "sha512": "lcyUiXTsETK2ALsZrX+nWuHSIQeazhqPphLfaRxzdGaG93+0kELqpgEHtwWOlQe7+jSFnKwaCAgL4kjeZCQJnw==",
+      "type": "package",
+      "path": "system.diagnostics.eventlog/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Diagnostics.EventLog.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Diagnostics.EventLog.dll",
+        "lib/net461/System.Diagnostics.EventLog.xml",
+        "lib/net6.0/System.Diagnostics.EventLog.dll",
+        "lib/net6.0/System.Diagnostics.EventLog.xml",
+        "lib/netcoreapp3.1/System.Diagnostics.EventLog.dll",
+        "lib/netcoreapp3.1/System.Diagnostics.EventLog.xml",
+        "lib/netstandard2.0/System.Diagnostics.EventLog.dll",
+        "lib/netstandard2.0/System.Diagnostics.EventLog.xml",
+        "runtimes/win/lib/net6.0/System.Diagnostics.EventLog.Messages.dll",
+        "runtimes/win/lib/net6.0/System.Diagnostics.EventLog.dll",
+        "runtimes/win/lib/net6.0/System.Diagnostics.EventLog.xml",
+        "runtimes/win/lib/netcoreapp3.1/System.Diagnostics.EventLog.Messages.dll",
+        "runtimes/win/lib/netcoreapp3.1/System.Diagnostics.EventLog.dll",
+        "runtimes/win/lib/netcoreapp3.1/System.Diagnostics.EventLog.xml",
+        "system.diagnostics.eventlog.6.0.0.nupkg.sha512",
+        "system.diagnostics.eventlog.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Drawing.Common/5.0.0": {
@@ -4523,29 +4719,41 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.0",
       "E-Commerce.infrastructure.RepositoryLayer >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.11",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.0",
       "Microsoft.Extensions.Identity.Core >= 7.0.0",
+      "Moq >= 4.18.2",
       "Swashbuckle.AspNetCore >= 6.2.3",
       "Swashbuckle.AspNetCore.Filters >= 7.0.6"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\asashok\\.nuget\\packages\\": {}
+    "C:\\Users\\mfathima\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\TeamProject\\E-Commerce\\E-Commerce.api.APILayer\\E-Commerce.api.APILayer.csproj",
+      "projectUniqueName": "D:\\e-commerce\\E-Commerce.api.APILayer\\E-Commerce.api.APILayer.csproj",
       "projectName": "E-Commerce.api.APILayer",
-      "projectPath": "D:\\TeamProject\\E-Commerce\\E-Commerce.api.APILayer\\E-Commerce.api.APILayer.csproj",
-      "packagesPath": "C:\\Users\\asashok\\.nuget\\packages\\",
-      "outputPath": "D:\\TeamProject\\E-Commerce\\E-Commerce.api.APILayer\\obj\\",
+      "projectPath": "D:\\e-commerce\\E-Commerce.api.APILayer\\E-Commerce.api.APILayer.csproj",
+      "packagesPath": "C:\\Users\\mfathima\\.nuget\\packages\\",
+      "outputPath": "D:\\e-commerce\\E-Commerce.api.APILayer\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\asashok\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\mfathima\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -4558,8 +4766,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\TeamProject\\E-Commerce\\E-Commerce.infrastructure.RepositoryLayer\\E-Commerce.infrastructure.RepositoryLayer.csproj": {
-              "projectPath": "D:\\TeamProject\\E-Commerce\\E-Commerce.infrastructure.RepositoryLayer\\E-Commerce.infrastructure.RepositoryLayer.csproj"
+            "D:\\e-commerce\\E-Commerce.infrastructure.RepositoryLayer\\E-Commerce.infrastructure.RepositoryLayer.csproj": {
+              "projectPath": "D:\\e-commerce\\E-Commerce.infrastructure.RepositoryLayer\\E-Commerce.infrastructure.RepositoryLayer.csproj"
             }
           }
         }
@@ -4574,6 +4782,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "[12.0.0, )"
+          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[6.0.11, )"
@@ -4587,6 +4799,10 @@
           "Microsoft.Extensions.Identity.Core": {
             "target": "Package",
             "version": "[7.0.0, )"
+          },
+          "Moq": {
+            "target": "Package",
+            "version": "[4.18.2, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
@@ -4616,7 +4832,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -7,15 +7,15 @@ namespace E_Commerce.core.DomainLayer
     public class LoginModel
     {
         [Key]
-      
-        [Required(ErrorMessage = "*EmailId is required")]
-        [Display(Name = "EmailId")]
+
+        //[Required(ErrorMessage = "*EmailId is required")]
+        //[Display(Name = "EmailId")]
         [EmailAddress(ErrorMessage = "*EmailId should be in the format adc@gmail.com")]
         public string EmailId { get; set; }
-        [Required(ErrorMessage = "*Password is required")]
-        [Display(Name = "Password")]
-        [DataType(DataType.Password)]
-        [RegularExpression("[^ ]{8,10}", ErrorMessage = "Password should contain a minimum of 8 characters and a capital letter")]
+        //[Required(ErrorMessage = "*Password is required")]
+        //[Display(Name = "Password")]
+        //[DataType(DataType.Password)]
+        //[RegularExpression("[^ ]{8,10}", ErrorMessage = "Password should contain a minimum of 8 characters and a capital letter")]
         public string password { get; set; }
 
         //[DefaultValue(value:DateTime.Now)]
