@@ -1,23 +1,42 @@
-﻿using E_Commerce.core.ApplicationLayer.Interface;
+﻿using AutoMapper;
+using Castle.Components.DictionaryAdapter.Xml;
+using E_Commerce.core.ApplicationLayer.DTOModel;
+using E_Commerce.core.ApplicationLayer.Interface;
 using E_Commerce.core.DomainLayer;
+using NPOI.OpenXmlFormats.Dml.Diagram;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace E_Commerce.infrastructure.RepositoryLayer.services
 {
-    public class Category:ICategory
+    public class Category : ICategory
     {
         private readonly AdminDbContext _adminDbContext;
-        public Category(AdminDbContext adminDbContext)
+        private readonly IMapper _mapper;
+        public Category(AdminDbContext adminDbContext, IMapper mapper)
         {
             _adminDbContext = adminDbContext;
+            _mapper = mapper;
+           
         }
-        public List<CategoryModel> Get()
+
+        public List<CategoryDTO> Get()
         {
-            return _adminDbContext.Category.ToList();
+            //try{
+
+                var data = _mapper.Map<List<CategoryModel>, List<CategoryDTO>>(_adminDbContext.Category.ToList());
+                return data;
+            //}
+            //catch(Exception ex)
+            //{
+            //    throw new Exception("error");
+            //}
         }
+       
+
     }
 }

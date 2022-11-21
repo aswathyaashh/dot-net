@@ -218,3 +218,5 @@ D:\e-commerce\E-Commerce.api.APILayer\obj\Debug\net6.0\E-Commerce.api.APILayer.g
 D:\e-commerce\E-Commerce.api.APILayer\obj\Debug\net6.0\ref\E-Commerce.api.APILayer.dll
 D:\e-commerce\E-Commerce.api.APILayer\bin\Debug\net6.0\Castle.Core.dll
 D:\e-commerce\E-Commerce.api.APILayer\bin\Debug\net6.0\Moq.dll
+D:\e-commerce\E-Commerce.api.APILayer\bin\Debug\net6.0\AutoMapper.dll
+D:\e-commerce\E-Commerce.api.APILayer\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

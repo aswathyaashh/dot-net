@@ -1,3 +1,4 @@
+using E_Commerce.core.ApplicationLayer.DTOModel.Helpers;
 using E_Commerce.core.ApplicationLayer.Interface;
 using E_Commerce.infrastructure.RepositoryLayer;
 using E_Commerce.infrastructure.RepositoryLayer.services;
@@ -28,8 +29,10 @@ builder.Services.AddSwaggerGen(options =>
 
     options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
+builder.Services.AddAutoMapper(typeof(CategoryAutoMapping).Assembly);
 builder.Services.AddDbContext<AdminDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddScoped<ILogin, Login>();
+builder.Services.AddScoped<ICategory , Category>();
 builder.Services.AddCors(p => p.AddPolicy(MyAllowSpecificOrigins, builder =>
 {
     builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();

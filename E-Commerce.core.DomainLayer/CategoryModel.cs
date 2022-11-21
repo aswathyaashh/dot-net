@@ -12,9 +12,13 @@ namespace E_Commerce.core.DomainLayer
         public int Id { get; set; } = 0;
         [StringLength(30, MinimumLength = 3)]
         public string Name { get; set; }
-        public string Status { get; set; }
-        public string CreateDate { get; set; }
-        public string UpdateDate { get; set; }
-
+        public int Status { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
+        public CategoryModel()
+        {
+            this.CreatedDate = DateTime.UtcNow;
+            this.UpdatedDate = DateTime.UtcNow;
+        }
     }
 }
