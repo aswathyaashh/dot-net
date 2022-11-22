@@ -10,7 +10,7 @@ namespace E_Commerce.core.ApplicationLayer.Interface
 {
     public interface ICategory
     {
-        //List<CategoryModel> Get();
+       
         public List<CategoryDTO> Get();
     }
 }

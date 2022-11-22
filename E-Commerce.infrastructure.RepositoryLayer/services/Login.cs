@@ -1,4 +1,7 @@
-﻿using E_Commerce.core.ApplicationLayer.Interface;
+﻿using AutoMapper;
+using E_Commerce.core.ApplicationLayer.DTOModel;
+using E_Commerce.core.ApplicationLayer.DTOModel.Login;
+using E_Commerce.core.ApplicationLayer.Interface;
 using E_Commerce.core.DomainLayer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -19,10 +22,12 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
     {
         private readonly AdminDbContext _admincontext;
         private readonly IConfiguration _configuration;
-        public Login(AdminDbContext adminDbContext,IConfiguration iconfiguration)
+        private readonly IMapper _mapper;
+        public Login(AdminDbContext adminDbContext,IConfiguration iconfiguration,IMapper mapper)
         {
             _admincontext = adminDbContext;
             _configuration = iconfiguration;
+            _mapper = mapper;
         }
         public String loginCheck(LoginModel login)
         {
@@ -34,12 +39,15 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
             else if(loginModel.password!=login.password)
             {
 
-                return "Password not found";
+                return " Wrong Password";
                
             }
+            //var data = _mapper.Map<List<LoginModel>, List<LoginDTO>>(loginModel);
+            //return data;
             //return "";
 
-            return CreateToken(login);
+            string token = CreateToken(login);
+            return token;
         }
 
         private string CreateToken(LoginModel user)

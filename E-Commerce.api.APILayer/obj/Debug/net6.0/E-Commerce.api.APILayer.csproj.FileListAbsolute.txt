@@ -220,3 +220,4 @@ D:\e-commerce\E-Commerce.api.APILayer\bin\Debug\net6.0\Castle.Core.dll
 D:\e-commerce\E-Commerce.api.APILayer\bin\Debug\net6.0\Moq.dll
 D:\e-commerce\E-Commerce.api.APILayer\bin\Debug\net6.0\AutoMapper.dll
 D:\e-commerce\E-Commerce.api.APILayer\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\e-commerce\E-Commerce.api.APILayer\bin\Debug\net6.0\Swashbuckle.AspNetCore.Annotations.dll

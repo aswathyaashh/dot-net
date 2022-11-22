@@ -1,8 +1,12 @@
-﻿using E_Commerce.core.ApplicationLayer.Interface;
+﻿using AutoMapper;
+using E_Commerce.core.ApplicationLayer.DTOModel;
+using E_Commerce.core.ApplicationLayer.DTOModel.Login;
+using E_Commerce.core.ApplicationLayer.Interface;
 using E_Commerce.core.DomainLayer;
 using E_Commerce.infrastructure.RepositoryLayer;
 using E_Commerce.infrastructure.RepositoryLayer.services;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,19 +17,30 @@ namespace E_Commerce.api.APILayer.Controllers
     public class LoginController : ControllerBase
     {
         private readonly ILogin _login;
+        private readonly IMapper _mapper;
 
-        public LoginController(ILogin login)
+        public LoginController(ILogin login,IMapper mapper)
         {
             _login = login;
+            _mapper = mapper;
            
         }
         [HttpPost("AdminLogin")]
-        public async Task<IActionResult> loginCheck([FromBody] LoginModel login)
+        [ProducesResponseType(typeof(List<LoginModel>),StatusCodes.Status200OK)]
+        [SwaggerOperation(Summary ="Get 2 values",Description ="Get Email and Password")]
+        public IActionResult loginCheck([FromBody] LoginDTO login)
         {
-            var temp = _login.loginCheck(login);
-            if(temp == null)
+            //var temp = _login.loginCheck(login);
+            var temp = _mapper.Map<List<LoginModel>, List<LoginDTO>>(_login.loginCheck(login));
+
+            if (temp == "Username not found")
             {
-                return NotFound();
+                return BadRequest("User not found");
+         
+            }
+            else if(temp == " Wrong Password")
+            {
+                return BadRequest("Wrong Password");
             }
             return Ok(temp);
         }

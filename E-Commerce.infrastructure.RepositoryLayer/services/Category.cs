@@ -26,15 +26,15 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
 
         public List<CategoryDTO> Get()
         {
-            //try{
+            try{
 
                 var data = _mapper.Map<List<CategoryModel>, List<CategoryDTO>>(_adminDbContext.Category.ToList());
                 return data;
-            //}
-            //catch(Exception ex)
-            //{
-            //    throw new Exception("error");
-            //}
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("error");
+            }
         }
        
 
