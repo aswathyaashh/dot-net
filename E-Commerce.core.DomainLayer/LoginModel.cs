@@ -11,6 +11,7 @@ namespace E_Commerce.core.DomainLayer
         public string EmailId { get; set; }
         
         public string password { get; set; }
+        //public int id { get; set; }
 
         
         public DateTime? createdDate { get; set; }

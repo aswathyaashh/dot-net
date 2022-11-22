@@ -8,11 +8,12 @@ namespace E_Commerce.core.ApplicationLayer.DTOModel.Login
 {
     public class LoginResponseDTO
     {
-        public string IsTocken { get; set; }
-        //public string IsAuthorized { get; set; }
-        public bool IsAuthenticate { get; set; }
-        public string IsSuccess { get; set; }
-        public DateOnly ExpiryDate { get; set; }
+        public string Token { get; set; }
+   
+        public bool Authenticate { get; set; }
+        
+       
+        public DateTime ExpiryDate { get; set; }
         public  string Message { get; set; }
        
 

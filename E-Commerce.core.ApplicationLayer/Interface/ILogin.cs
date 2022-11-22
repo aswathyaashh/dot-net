@@ -1,4 +1,5 @@
-﻿using E_Commerce.core.DomainLayer;
+﻿using E_Commerce.core.ApplicationLayer.DTOModel.Login;
+using E_Commerce.core.DomainLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace E_Commerce.core.ApplicationLayer.Interface
 {
     public interface ILogin
     {
-        string loginCheck(LoginModel login);
+        LoginResponseDTO loginCheck(LoginDTO login);
     }
 }
 

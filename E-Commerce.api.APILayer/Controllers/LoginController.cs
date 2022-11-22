@@ -19,29 +19,19 @@ namespace E_Commerce.api.APILayer.Controllers
         private readonly ILogin _login;
         private readonly IMapper _mapper;
 
-        public LoginController(ILogin login,IMapper mapper)
+        public LoginController(ILogin login, IMapper mapper)
         {
             _login = login;
             _mapper = mapper;
-           
+
         }
         [HttpPost("AdminLogin")]
-        [ProducesResponseType(typeof(List<LoginModel>),StatusCodes.Status200OK)]
-        [SwaggerOperation(Summary ="Get 2 values",Description ="Get Email and Password")]
+        [ProducesResponseType(typeof(List<LoginResponseDTO>), StatusCodes.Status200OK)]
+        [SwaggerOperation(Summary = "Get 2 values", Description = "Get Email and Password")]
         public IActionResult loginCheck([FromBody] LoginDTO login)
         {
-            //var temp = _login.loginCheck(login);
-            var temp = _mapper.Map<List<LoginModel>, List<LoginDTO>>(_login.loginCheck(login));
-
-            if (temp == "Username not found")
-            {
-                return BadRequest("User not found");
-         
-            }
-            else if(temp == " Wrong Password")
-            {
-                return BadRequest("Wrong Password");
-            }
+            LoginResponseDTO temp = _login.loginCheck(login);
+            
             return Ok(temp);
         }
 

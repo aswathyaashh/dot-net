@@ -30,7 +30,7 @@ namespace ECommerce.infrastructure.RepositoryLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreateDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -38,11 +38,10 @@ namespace ECommerce.infrastructure.RepositoryLayer.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdateDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -54,6 +53,18 @@ namespace ECommerce.infrastructure.RepositoryLayer.Migrations
                 {
                     b.Property<string>("EmailId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("createdDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("id")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("modifiedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("password")
                         .IsRequired()

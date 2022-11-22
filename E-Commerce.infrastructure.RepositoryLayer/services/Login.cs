@@ -29,28 +29,44 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
             _configuration = iconfiguration;
             _mapper = mapper;
         }
-        public String loginCheck(LoginModel login)
+        public LoginResponseDTO loginCheck(LoginDTO login)
         {
-            LoginModel? loginModel = _admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId);
-            if(loginModel==null)
+
+            LoginDTO? loginModel = _mapper.Map<LoginModel, LoginDTO>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
+            var temp = _mapper.Map<LoginModel, LoginDTO>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
+            var temp1 = _mapper.Map<LoginDTO, LoginModel>(temp);
+            temp1.modifiedDate= DateTime.Now;
+            if ((loginModel.EmailId== login.EmailId) && (loginModel.password == login.password))
             {
-                return "Username not found";
+                return new LoginResponseDTO()
+                {
+                    Authenticate = true,
+                    Message = "Success",
+                    ExpiryDate = DateTime.Now.AddDays(1),
+                    Token= CreateToken(login)
+                   
+                };
+              
+               // return "Username not found";
             }
-            else if(loginModel.password!=login.password)
+            else 
             {
 
-                return " Wrong Password";
-               
+                return new LoginResponseDTO()
+                {
+                    Authenticate = false,
+                    Message = "Failed"
+                };
+
             }
             //var data = _mapper.Map<List<LoginModel>, List<LoginDTO>>(loginModel);
             //return data;
             //return "";
 
-            string token = CreateToken(login);
-            return token;
+          
         }
 
-        private string CreateToken(LoginModel user)
+        private string CreateToken(LoginDTO user)
         {
             List<Claim> claims = new List<Claim>
             {
