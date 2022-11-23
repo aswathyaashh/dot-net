@@ -34,37 +34,50 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
 
             LoginDTO? loginModel = _mapper.Map<LoginModel, LoginDTO>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
             var temp = _mapper.Map<LoginModel, LoginDTO>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
-            var temp1 = _mapper.Map<LoginDTO, LoginModel>(temp);
-            temp1.modifiedDate= DateTime.Now;
-            if ((loginModel.EmailId== login.EmailId) && (loginModel.password == login.password))
-            {
-                return new LoginResponseDTO()
+            //var temp1 = _mapper.Map<LoginDTO, LoginModel>(temp);
+            //temp1.modifiedDate= DateTime.Now;                       
+                if (loginModel==null)
                 {
-                    Authenticate = true,
-                    Message = "Success",
-                    ExpiryDate = DateTime.Now.AddDays(1),
-                    Token= CreateToken(login)
-                   
-                };
-              
-               // return "Username not found";
-            }
-            else 
-            {
+                    return new LoginResponseDTO()
+                    {
+                        Authenticate = false,
+                        Message = "email not found"
+                       
 
+                    };
+
+
+                    // return "Username not found";
+                }
+                else if ((loginModel.EmailId == login.EmailId) && (loginModel.password == login.password))
+                {
+                    return new LoginResponseDTO()
+                    {
+                        
+                        Authenticate = true,
+                        Message = "Success",
+                        ExpiryDate = DateTime.Now.AddDays(1),
+                        Token = CreateToken(login)
+                    };
+                }
+                else
+                {
                 return new LoginResponseDTO()
                 {
                     Authenticate = false,
-                    Message = "Failed"
-                };
+                    Message = "password incoorect"
 
+                };
+            }
+            
+           
             }
             //var data = _mapper.Map<List<LoginModel>, List<LoginDTO>>(loginModel);
             //return data;
             //return "";
 
           
-        }
+        
 
         private string CreateToken(LoginDTO user)
         {

@@ -12,7 +12,6 @@ namespace E_Commerce.core.ApplicationLayer.DTOModel.Login
    
         public bool Authenticate { get; set; }
         
-       
         public DateTime ExpiryDate { get; set; }
         public  string Message { get; set; }
        
