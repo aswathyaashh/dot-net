@@ -11,6 +11,7 @@ namespace E_Commerce.core.ApplicationLayer.DTOModel.Login
     {
         [EmailAddress(ErrorMessage = "*EmailId should be in the format adc@gmail.com")]
         public string EmailId { get; set; }
-        public string password { get; set; }
+
+        public string Password { get; set; }
     }
 }

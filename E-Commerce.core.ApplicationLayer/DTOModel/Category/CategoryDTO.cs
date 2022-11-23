@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 namespace E_Commerce.core.ApplicationLayer.DTOModel
 {
     public class CategoryDTO
-    {
-        public int Id { get; set; } = 0;
-        
-        public string Name { get; set; }
+    {  
+        public string CategoryName { get; set; }
     }
 }

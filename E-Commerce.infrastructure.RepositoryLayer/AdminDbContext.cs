@@ -1,4 +1,4 @@
-﻿using E_Commerce.core.DomainLayer;
+﻿using E_Commerce.core.DomainLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_Commerce.infrastructure.RepositoryLayer

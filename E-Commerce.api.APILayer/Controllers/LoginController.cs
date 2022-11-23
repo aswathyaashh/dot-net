@@ -14,6 +14,8 @@ namespace E_Commerce.api.APILayer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Consumes("application/json")]
+    [Produces("application/json")]
     public class LoginController : ControllerBase
     {
         private readonly ILogin _login;
@@ -26,6 +28,7 @@ namespace E_Commerce.api.APILayer.Controllers
 
         }
         [HttpPost("AdminLogin")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(List<LoginResponseDTO>), StatusCodes.Status200OK)]
         [SwaggerOperation(Summary = "Get 2 values", Description = "Get Email and Password")]
         public IActionResult loginCheck([FromBody] LoginDTO login)

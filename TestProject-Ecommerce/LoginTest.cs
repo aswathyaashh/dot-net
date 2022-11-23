@@ -1,8 +1,7 @@
 
 using E_Commerce.core.ApplicationLayer.Interface;
 using E_Commerce.infrastructure.RepositoryLayer;
-using E_Commerce.core.DomainLayer;
-
+using E_Commerce.core.DomainLayer.Entities;
 
 namespace TestProject_Ecommerce
 {
@@ -18,7 +17,7 @@ namespace TestProject_Ecommerce
         {
             //loginCheck tp = new loginCheck();
             Assert.AreEqual("admin@gmail.com",login.EmailId);
-            Assert.AreEqual("Admin123", login.password);
+            Assert.AreEqual("Admin123", login.Password);
 
         }
     }

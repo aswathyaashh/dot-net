@@ -16,6 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
@@ -28,6 +29,7 @@ builder.Services.AddSwaggerGen(C =>
         Title = "Swagger API",
         Description = "FlexKart E-Commerce Project",
     });
+   
     C.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
 
     {
@@ -46,7 +48,7 @@ builder.Services.AddSwaggerGen(C =>
     //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     //C.IncludeXmlComments(xmlPath);
 });
-builder.Services.AddAutoMapper(typeof(CategoryAutoMapping).Assembly);
+builder.Services.AddAutoMapper(typeof(GeneralProfile).Assembly);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {

@@ -2,7 +2,7 @@
 using Castle.Components.DictionaryAdapter.Xml;
 using E_Commerce.core.ApplicationLayer.DTOModel;
 using E_Commerce.core.ApplicationLayer.Interface;
-using E_Commerce.core.DomainLayer;
+using E_Commerce.core.DomainLayer.Entities;
 using NPOI.OpenXmlFormats.Dml.Diagram;
 using System;
 using System.Collections.Generic;
@@ -33,7 +33,7 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
             }
             catch(Exception ex)
             {
-                throw new Exception("error");
+                throw new Exception("Error");
             }
         }
        

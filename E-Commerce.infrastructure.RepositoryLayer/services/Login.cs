@@ -2,13 +2,13 @@
 using E_Commerce.core.ApplicationLayer.DTOModel;
 using E_Commerce.core.ApplicationLayer.DTOModel.Login;
 using E_Commerce.core.ApplicationLayer.Interface;
-using E_Commerce.core.DomainLayer;
+using E_Commerce.core.DomainLayer.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using NPOI.SS.Formula.Functions;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+//using System.Data.Entity;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net;
@@ -34,14 +34,14 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
 
             LoginDTO? loginModel = _mapper.Map<LoginModel, LoginDTO>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
             var temp = _mapper.Map<LoginModel, LoginDTO>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
-            //var temp1 = _mapper.Map<LoginDTO, LoginModel>(temp);
-            //temp1.modifiedDate= DateTime.Now;                       
-                if (loginModel==null)
+            var temp1 = _mapper.Map<LoginDTO, LoginModel>(temp);
+            temp1.ModifiedDate = DateTime.Now;
+            if (loginModel==null)
                 {
                     return new LoginResponseDTO()
                     {
                         Authenticate = false,
-                        Message = "email not found"
+                        Message = "EmailId is incorrect"
                        
 
                     };
@@ -49,14 +49,15 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
 
                     // return "Username not found";
                 }
-                else if ((loginModel.EmailId == login.EmailId) && (loginModel.password == login.password))
+                else if ((loginModel.EmailId == login.EmailId) && (loginModel.Password == login.Password))
                 {
                     return new LoginResponseDTO()
                     {
                         
                         Authenticate = true,
                         Message = "Success",
-                        ExpiryDate = DateTime.Now.AddDays(1),
+                        //ExpiryDate = DateTime.Now.AddDays(1),
+                        ExpiryDate = DateTime.UtcNow.AddMinutes(60),
                         Token = CreateToken(login)
                     };
                 }
@@ -65,20 +66,14 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
                 return new LoginResponseDTO()
                 {
                     Authenticate = false,
-                    Message = "password incoorect"
+                    Message = "Password is incorrect"
 
                 };
             }
             
            
             }
-            //var data = _mapper.Map<List<LoginModel>, List<LoginDTO>>(loginModel);
-            //return data;
-            //return "";
-
-          
-        
-
+                           
         private string CreateToken(LoginDTO user)
         {
             List<Claim> claims = new List<Claim>
@@ -93,7 +88,8 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
 
             var token = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.Now.AddDays(1),
+                //expires: DateTime.Now.AddDays(1),
+                expires:DateTime.UtcNow.AddMinutes(60),
                 signingCredentials: creds);
 
             var jwt = new JwtSecurityTokenHandler().WriteToken(token);

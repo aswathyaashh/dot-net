@@ -22,7 +22,7 @@ namespace ECommerce.infrastructure.RepositoryLayer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("E_Commerce.core.DomainLayer.CategoryModel", b =>
+            modelBuilder.Entity("E_Commerce.core.DomainLayer.Entities.CategoryModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -49,26 +49,23 @@ namespace ECommerce.infrastructure.RepositoryLayer.Migrations
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("E_Commerce.core.DomainLayer.LoginModel", b =>
+            modelBuilder.Entity("E_Commerce.core.DomainLayer.Entities.LoginModel", b =>
                 {
                     b.Property<string>("EmailId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("createdDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("id")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("modifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("password")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.HasKey("EmailId");
 
