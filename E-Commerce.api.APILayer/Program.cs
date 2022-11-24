@@ -4,7 +4,6 @@ using E_Commerce.infrastructure.RepositoryLayer;
 using E_Commerce.infrastructure.RepositoryLayer.services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
@@ -14,13 +13,8 @@ using System.Text;
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-
 builder.Services.AddSwaggerGen(C =>
 {
     C.EnableAnnotations();
@@ -30,15 +24,9 @@ builder.Services.AddSwaggerGen(C =>
         Version = "v1",
         Title = "Swagger API",
         Description = "FlexKart E-Commerce Project",
-       
+
     });
-    //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    //C.IncludeXmlComments(xmlPath);
-
-
-    // C.SwaggerDoc("v1", new OpenApiInfo { Title = "My Awesome Application", Version = "v1" });
-
+    
     C.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
 
     {
@@ -52,15 +40,19 @@ builder.Services.AddSwaggerGen(C =>
         Type = SecuritySchemeType.ApiKey
 
     });
+
     C.ExampleFilters();
 
     C.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
+
     C.OperationFilter<SecurityRequirementsOperationFilter>();
 
 });
+
 builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
 builder.Services.AddAutoMapper(typeof(GeneralProfile).Assembly);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+
     .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
@@ -72,30 +64,16 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = false
         };
     });
+
 builder.Services.AddDbContext<AdminDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddScoped<ILogin, Login>();
-builder.Services.AddScoped<ICategory , Category>();
+builder.Services.AddScoped<ICategory, Category>();
 builder.Services.AddCors(p => p.AddPolicy(MyAllowSpecificOrigins, builder =>
 {
     builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
 }));
 
-//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-//    .AddJwtBearer(options =>
-//    {
-//        options.TokenValidationParameters = new TokenValidationParameters
-//        {
-//            ValidateIssuerSigningKey = true,
-//            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
-//                .GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value)),
-//            ValidateIssuer = false,
-//            ValidateAudience = false
-//        };
-//    });
-
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger(c =>
@@ -109,11 +87,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 app.UseCors(MyAllowSpecificOrigins);
-
 app.Run();

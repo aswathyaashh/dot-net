@@ -1,21 +1,10 @@
-﻿using Swashbuckle.AspNetCore.Filters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using E_Commerce.core.ApplicationLayer.DTOModel.Generic_Response;
 
 namespace E_Commerce.core.ApplicationLayer.DTOModel.Login
 {
-    public class LoginResponseDTO 
+    public class LoginResponseDto : ApiResponse
     {
-        public string Token { get; set; }
-   
-        public bool Authenticate { get; set; }
-        
-        public DateTime ExpiryDate { get; set; }
-        public  string Message { get; set; }
-       
-
+        public string Token { get; set; }            
+        public DateTime ExpiryDate { get; set; }  
     }
 }

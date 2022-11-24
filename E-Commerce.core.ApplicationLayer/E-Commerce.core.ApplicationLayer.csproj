@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>E_Commerce.core.ApplicationLayer</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <DocumentationFile>M-url.Api.xml</DocumentationFile>
   </PropertyGroup>

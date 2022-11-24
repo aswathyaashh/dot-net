@@ -348,3 +348,9 @@ D:\TeamProject\FlexKart\TestProject-Ecommerce\obj\Debug\net6.0\TestProject-Ecomm
 D:\TeamProject\FlexKart\TestProject-Ecommerce\obj\Debug\net6.0\ref\TestProject-Ecommerce.dll
 D:\TeamProject\FlexKart\TestProject-Ecommerce\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Versioning.dll
 D:\TeamProject\FlexKart\TestProject-Ecommerce\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.dll
+D:\TeamProject\FlexKart\TestProject-Ecommerce\bin\Debug\net6.0\FluentValidation.dll
+D:\TeamProject\FlexKart\TestProject-Ecommerce\bin\Debug\net6.0\MicroElements.Swashbuckle.FluentValidation.dll
+D:\TeamProject\FlexKart\TestProject-Ecommerce\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\TeamProject\FlexKart\TestProject-Ecommerce\bin\Debug\net6.0\Scrutor.dll
+D:\TeamProject\FlexKart\TestProject-Ecommerce\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
+D:\TeamProject\FlexKart\TestProject-Ecommerce\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll

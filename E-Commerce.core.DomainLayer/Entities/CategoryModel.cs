@@ -9,9 +9,10 @@ namespace E_Commerce.core.DomainLayer.Entities
 {
     public class CategoryModel
     {
-        public int Id { get; set; } = 0;
+        [Key]
+        public int CategoryId { get; set; } = 0;
         [StringLength(30, MinimumLength = 3)]
-        public string Name { get; set; }
+        public string CategoryName { get; set; }
         public int Status { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
