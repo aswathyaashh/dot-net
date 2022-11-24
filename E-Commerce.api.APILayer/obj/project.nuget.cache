@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "eOjtkaykCQ2cM537o4lW1jRFrHbxteooJo8NPSJGL5D8/lkdE1ViJgQQRJ5WW9FMxL1OdBc2sMo2Pp606ztm/g==",
+  "dgSpecHash": "XH7OzLK7ZlGMnBww+5aIQq9N6lo3ySMKiJYDEw7pP8NdceadFKs+7q84tT11wCVGBv+R0fbcFPvmL4hHEtnFCQ==",
   "success": true,
   "projectFilePath": "D:\\TeamProject\\FlexKart\\E-Commerce.api.APILayer\\E-Commerce.api.APILayer.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,9 @@
     "C:\\Users\\asashok\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\asashok\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\asashok\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
+    "C:\\Users\\asashok\\.nuget\\packages\\fluentvalidation\\10.0.0\\fluentvalidation.10.0.0.nupkg.sha512",
     "C:\\Users\\asashok\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\asashok\\.nuget\\packages\\microelements.swashbuckle.fluentvalidation\\5.7.0\\microelements.swashbuckle.fluentvalidation.5.7.0.nupkg.sha512",
     "C:\\Users\\asashok\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.11\\microsoft.aspnetcore.authentication.jwtbearer.6.0.11.nupkg.sha512",
     "C:\\Users\\asashok\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.0\\microsoft.aspnetcore.cryptography.internal.7.0.0.nupkg.sha512",
     "C:\\Users\\asashok\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.0\\microsoft.aspnetcore.cryptography.keyderivation.7.0.0.nupkg.sha512",

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Swashbuckle.AspNetCore.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace E_Commerce.core.ApplicationLayer.DTOModel.Login
 {
-    public class LoginResponseDTO
+    public class LoginResponseDTO 
     {
         public string Token { get; set; }
    

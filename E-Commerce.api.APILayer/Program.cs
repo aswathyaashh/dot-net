@@ -4,6 +4,7 @@ using E_Commerce.infrastructure.RepositoryLayer;
 using E_Commerce.infrastructure.RepositoryLayer.services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
@@ -23,13 +24,21 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(C =>
 {
     C.EnableAnnotations();
+
     C.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
         Title = "Swagger API",
         Description = "FlexKart E-Commerce Project",
+       
     });
-   
+    //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    //C.IncludeXmlComments(xmlPath);
+
+
+    // C.SwaggerDoc("v1", new OpenApiInfo { Title = "My Awesome Application", Version = "v1" });
+
     C.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
 
     {
@@ -43,11 +52,13 @@ builder.Services.AddSwaggerGen(C =>
         Type = SecuritySchemeType.ApiKey
 
     });
+    C.ExampleFilters();
+
+    C.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
     C.OperationFilter<SecurityRequirementsOperationFilter>();
-    //var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    //C.IncludeXmlComments(xmlPath);
+
 });
+builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetEntryAssembly());
 builder.Services.AddAutoMapper(typeof(GeneralProfile).Assembly);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

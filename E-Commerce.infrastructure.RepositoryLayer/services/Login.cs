@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+
 using E_Commerce.core.ApplicationLayer.DTOModel;
 using E_Commerce.core.ApplicationLayer.DTOModel.Login;
 using E_Commerce.core.ApplicationLayer.Interface;
@@ -32,47 +33,58 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
         public LoginResponseDTO loginCheck(LoginDTO login)
         {
 
-            LoginDTO? loginModel = _mapper.Map<LoginModel, LoginDTO>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
-            var temp = _mapper.Map<LoginModel, LoginDTO>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
-            var temp1 = _mapper.Map<LoginDTO, LoginModel>(temp);
-            temp1.ModifiedDate = DateTime.Now;
-            if (loginModel==null)
-                {
-                    return new LoginResponseDTO()
+
+
+
+            try
+            {
+                LoginDTO loginModel = _mapper.Map<LoginModel, LoginDTO>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
+                
+
+                    if (loginModel.Password == login.Password)
                     {
-                        Authenticate = false,
-                        Message = "EmailId is incorrect"
-                       
+                        var temp = _mapper.Map<LoginModel, LoginDTO>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
+                        var temp1 = _mapper.Map<LoginDTO, LoginModel>(temp);
+                        temp1.ModifiedDate = DateTime.Now;
+                        return new LoginResponseDTO()
+                        {
 
-                    };
+                            Authenticate = true,
+                            Message = "Success",
 
+                            ExpiryDate = DateTime.UtcNow.AddMinutes(60),
+                            Token = CreateToken(login)
+                        };
 
-                    // return "Username not found";
-                }
-                else if ((loginModel.EmailId == login.EmailId) && (loginModel.Password == login.Password))
-                {
-                    return new LoginResponseDTO()
+                    }
+                    else
                     {
-                        
-                        Authenticate = true,
-                        Message = "Success",
-                        //ExpiryDate = DateTime.Now.AddDays(1),
-                        ExpiryDate = DateTime.UtcNow.AddMinutes(60),
-                        Token = CreateToken(login)
-                    };
-                }
-                else
-                {
+                        return new LoginResponseDTO()
+                        {
+                            Authenticate = false,
+                            Message = "Password is incorrect"
+
+                        };
+                    }
+                
+
+                
+            }
+
+ 
+            
+            catch (Exception)
+            {
                 return new LoginResponseDTO()
                 {
                     Authenticate = false,
-                    Message = "Password is incorrect"
+                    Message = "Email is incorrect"
 
                 };
             }
-            
-           
-            }
+
+
+        }
                            
         private string CreateToken(LoginDTO user)
         {
