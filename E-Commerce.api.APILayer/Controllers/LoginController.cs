@@ -24,12 +24,12 @@ namespace E_Commerce.api.APILayer.Controllers
         [ProducesResponseType(typeof(LoginResponseDto), StatusCodes.Status200OK)]
         [SwaggerOperation(Summary = "Get 2 values", Description = "Get Email and Password")]
 #region
-        public IActionResult LoginCheck(string emailId, string Password)
+        public IActionResult LoginCheck([FromBody]LoginDto loginDto)
         {
-            LoginDto login = new LoginDto();
-            login.EmailId = emailId;
-            login.Password = Password;
-            LoginResponseDto temp = _login.LoginCheck(login);
+            //LoginDto login = new LoginDto();
+            //loginDto.EmailId;
+            //login.Password = password;
+            LoginResponseDto temp = _login.LoginCheck(loginDto);
             return Ok(temp);
         }
 #endregion

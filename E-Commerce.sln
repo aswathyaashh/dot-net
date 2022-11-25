@@ -5,15 +5,15 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{F30E7B1E-3907-40A8-9788-9FDACE3A2102}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{5911CC80-7CD0-43B4-A9BB-CA44B9A587AB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{5911CC80-7CD0-43B4-A9BB-CA44B9A587AB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.core.DomainLayer", "E-Commerce.core.DomainLayer\E-Commerce.core.DomainLayer.csproj", "{38568483-793B-4786-B83F-61FC13D32110}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{9476CCB4-C8B5-4F27-AE28-D54A5C91D564}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{9476CCB4-C8B5-4F27-AE28-D54A5C91D564}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.infrastructure.RepositoryLayer", "E-Commerce.infrastructure.RepositoryLayer\E-Commerce.infrastructure.RepositoryLayer.csproj", "{55CEACB3-7BB1-4096-8825-A71783444A20}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{A9AD7073-C277-47F5-9506-1E8785518E42}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{A9AD7073-C277-47F5-9506-1E8785518E42}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Commerce.api.APILayer", "E-Commerce.api.APILayer\E-Commerce.api.APILayer.csproj", "{E0CC4B03-8308-4841-AC04-E26E760A66A4}"
 EndProject
