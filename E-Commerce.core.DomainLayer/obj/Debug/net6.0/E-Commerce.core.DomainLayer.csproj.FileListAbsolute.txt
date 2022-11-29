@@ -40,3 +40,17 @@ D:\TeamProject\FlexKart\E-Commerce.core.DomainLayer\obj\Debug\net6.0\refint\E-Co
 D:\TeamProject\FlexKart\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.pdb
 D:\TeamProject\FlexKart\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.genruntimeconfig.cache
 D:\TeamProject\FlexKart\E-Commerce.core.DomainLayer\obj\Debug\net6.0\ref\E-Commerce.core.DomainLayer.dll
+D:\Teamproject\asp.net\E-Commerce.core.DomainLayer\bin\Debug\net6.0\E-Commerce.core.DomainLayer.deps.json
+D:\Teamproject\asp.net\E-Commerce.core.DomainLayer\bin\Debug\net6.0\E-Commerce.core.DomainLayer.runtimeconfig.json
+D:\Teamproject\asp.net\E-Commerce.core.DomainLayer\bin\Debug\net6.0\E-Commerce.core.DomainLayer.dll
+D:\Teamproject\asp.net\E-Commerce.core.DomainLayer\bin\Debug\net6.0\E-Commerce.core.DomainLayer.pdb
+D:\Teamproject\asp.net\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.csproj.AssemblyReference.cache
+D:\Teamproject\asp.net\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Teamproject\asp.net\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.AssemblyInfoInputs.cache
+D:\Teamproject\asp.net\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.AssemblyInfo.cs
+D:\Teamproject\asp.net\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.csproj.CoreCompileInputs.cache
+D:\Teamproject\asp.net\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.dll
+D:\Teamproject\asp.net\E-Commerce.core.DomainLayer\obj\Debug\net6.0\refint\E-Commerce.core.DomainLayer.dll
+D:\Teamproject\asp.net\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.pdb
+D:\Teamproject\asp.net\E-Commerce.core.DomainLayer\obj\Debug\net6.0\E-Commerce.core.DomainLayer.genruntimeconfig.cache
+D:\Teamproject\asp.net\E-Commerce.core.DomainLayer\obj\Debug\net6.0\ref\E-Commerce.core.DomainLayer.dll

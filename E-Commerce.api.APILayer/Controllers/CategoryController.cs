@@ -6,6 +6,9 @@ using AutoMapper;
 using E_Commerce.infrastructure.RepositoryLayer.services;
 using E_Commerce.infrastructure.RepositoryLayer;
 using Microsoft.AspNetCore.Authorization;
+using System.Net.Mime;
+using E_Commerce.core.ApplicationLayer.DTOModel.Login;
+using Swashbuckle.AspNetCore.Annotations;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,21 +17,41 @@ namespace E_Commerce.api.APILayer.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
+    [Consumes("application/json", MediaTypeNames.Application.Xml)]
+    [Produces("application/json", MediaTypeNames.Application.Xml)]
     public class CategoryController : ControllerBase
     {
        private readonly ICategory _category;
       
         public CategoryController(ICategory category)
         {
-            _category = category;
-            
-           
+            _category = category;                       
         }
+
+#region
         [HttpGet]
+        [AllowAnonymous]
+        [SwaggerResponse(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(CategoryDTO), StatusCodes.Status200OK)]
+        [SwaggerOperation(Summary = "Get all List", Description = "Get Category List")]
         public ActionResult<List<CategoryDTO>> Get()
-        {
-                      
+        {                      
             return _category.Get();
         }
+#endregion
+
+#region
+        [HttpDelete]      
+        [Route("delete/{CategoryId}")]
+        [AllowAnonymous]
+        [SwaggerResponse(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(CategoryDTO), StatusCodes.Status200OK)]
+        [SwaggerOperation(Summary = "Delete Category", Description = "Delete specified category")]
+        public ActionResult Delete(int CategoryId)
+        {
+            var temp = _category.Delete(CategoryId);
+            return Ok(temp);
+        }
+#endregion
     }
 }

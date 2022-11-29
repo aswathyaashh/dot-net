@@ -30,9 +30,7 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
                 { 
                     if (loginModel.Password == login.Password)
 
-                    {
-                        //throw new NotFiniteNumberException();
-                        //throw new NullReferenceException();
+                    {                       
                         var check = _mapper.Map<LoginModel, LoginDto>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
                         var modifyDate = _mapper.Map<LoginDto, LoginModel>(check);
                         modifyDate.ModifiedDate = DateTime.Now;

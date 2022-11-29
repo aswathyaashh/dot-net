@@ -26,6 +26,7 @@ namespace E_Commerce.api.APILayer.Controllers
 #region
         public IActionResult LoginCheck([FromBody]LoginDto loginDto)
         {
+            
             //LoginDto login = new LoginDto();
             //loginDto.EmailId;
             //login.Password = password;
@@ -33,7 +34,7 @@ namespace E_Commerce.api.APILayer.Controllers
             return Ok(response);
            
         }
-#endregion
+#endregion 
 
     }
 }
