@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "XH7OzLK7ZlGMnBww+5aIQq9N6lo3ySMKiJYDEw7pP8NdceadFKs+7q84tT11wCVGBv+R0fbcFPvmL4hHEtnFCQ==",
+  "dgSpecHash": "/uHfbBflNm1kAH7zBgiS840/gdHpHJq17bLxtozP+myN1hwRX4z54a8CtM118qcBUCYkiTn9mxrxGF9i/g5Jag==",
   "success": true,
   "projectFilePath": "D:\\TeamProject\\FlexKart\\E-Commerce.api.APILayer\\E-Commerce.api.APILayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\asashok\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\asashok\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
+    "C:\\Users\\asashok\\.nuget\\packages\\awssdk\\2.3.55.2\\awssdk.2.3.55.2.nupkg.sha512",
     "C:\\Users\\asashok\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\asashok\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\asashok\\.nuget\\packages\\castle.core\\5.1.0\\castle.core.5.1.0.nupkg.sha512",
@@ -99,5 +100,16 @@
     "C:\\Users\\asashok\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\asashok\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'AWSSDK 2.3.55.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "AWSSDK",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

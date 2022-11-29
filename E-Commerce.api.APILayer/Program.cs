@@ -1,3 +1,5 @@
+using E_Commerce.api.APILayer.CustomExceptionMiddleware;
+//using E_Commerce.api.APILayer.Extensions;
 using E_Commerce.core.ApplicationLayer.DTOModel.Helpers;
 using E_Commerce.core.ApplicationLayer.Interface;
 using E_Commerce.infrastructure.RepositoryLayer;
@@ -85,10 +87,14 @@ if (app.Environment.IsDevelopment())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
     });
 }
+////var logger = app.Services.GetRequiredService<ILoggerManager>();
+//app.ConfigureExceptionHandler(logger);
+//app.ConfigureCustomExceptionMiddleware();
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.UseMiddleware<ExceptionMiddleware>();
 app.UseCors(MyAllowSpecificOrigins);
 app.Run();

@@ -29,8 +29,9 @@ namespace E_Commerce.api.APILayer.Controllers
             //LoginDto login = new LoginDto();
             //loginDto.EmailId;
             //login.Password = password;
-            LoginResponseDto temp = _login.LoginCheck(loginDto);
-            return Ok(temp);
+            LoginResponseDto response = _login.LoginCheck(loginDto);
+            return Ok(response);
+           
         }
 #endregion
 

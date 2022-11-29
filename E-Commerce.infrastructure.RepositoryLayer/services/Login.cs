@@ -23,43 +23,54 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
         }
         public LoginResponseDto LoginCheck(LoginDto login)
         {
-            try
+            LoginDto loginModel = _mapper.Map<LoginModel, LoginDto>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
+            if(loginModel != null)
             {
-                LoginDto loginModel = _mapper.Map<LoginModel, LoginDto>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
 
-                if (loginModel.Password == login.Password)
-                {
-                    var check = _mapper.Map<LoginModel, LoginDto>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
-                    var modifyDate = _mapper.Map<LoginDto, LoginModel>(check);
-                    modifyDate.ModifiedDate = DateTime.Now;
-                    _admincontext.SaveChanges();
-                    return new LoginResponseDto()
+                { 
+                    if (loginModel.Password == login.Password)
+
                     {
-                        Success = true,
-                        Message = "Success",
-                        ExpiryDate = DateTime.UtcNow.AddMinutes(60),
-                        Token = CreateToken(login)
-                    };
-                }
-                else
-                {
+                        //throw new NotFiniteNumberException();
+                        //throw new NullReferenceException();
+                        var check = _mapper.Map<LoginModel, LoginDto>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
+                        var modifyDate = _mapper.Map<LoginDto, LoginModel>(check);
+                        modifyDate.ModifiedDate = DateTime.Now;
+                        _admincontext.SaveChanges();
+                        return new LoginResponseDto()
+                        {
+                            Success = true,
+                            Message = "Success",
+                            ExpiryDate = DateTime.UtcNow.AddMinutes(60),
+                            Token = CreateToken(login)
+                        };
+                    }
+                    else
+                    {
+                        return new LoginResponseDto()
+                        {
+                            Success = false,
+                            Message = "Password is incorrect"
+                        };
+                    }
+
+
+
+                }  
+            }
+
+             else 
+                  {
                     return new LoginResponseDto()
                     {
                         Success = false,
-                        Message = "Password is incorrect"
-                    };
-                }                
-            }
-            catch (Exception)
-            {
-                return new LoginResponseDto()
-                {
-                    Success = false,
-                    Message = "Something went wrong"
+                        Message = "Email Incorrect"
 
-                };
-            }
+                    };
+
+                }
         }
+       
         
 #region
         /// <summary>

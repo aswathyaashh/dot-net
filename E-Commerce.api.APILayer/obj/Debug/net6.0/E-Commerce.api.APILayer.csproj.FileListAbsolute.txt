@@ -331,3 +331,4 @@ D:\TeamProject\FlexKart\E-Commerce.api.APILayer\bin\Debug\net6.0\Microsoft.AspNe
 D:\TeamProject\FlexKart\E-Commerce.api.APILayer\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.dll
 D:\TeamProject\FlexKart\E-Commerce.api.APILayer\bin\Debug\net6.0\FluentValidation.dll
 D:\TeamProject\FlexKart\E-Commerce.api.APILayer\bin\Debug\net6.0\MicroElements.Swashbuckle.FluentValidation.dll
+D:\TeamProject\FlexKart\E-Commerce.api.APILayer\bin\Debug\net6.0\AWSSDK.dll
