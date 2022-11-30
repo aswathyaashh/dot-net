@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Authorization;
 using System.Net.Mime;
 using E_Commerce.core.ApplicationLayer.DTOModel.Login;
 using Swashbuckle.AspNetCore.Annotations;
+using E_Commerce.core.ApplicationLayer.DTOModel.Category;
+using E_Commerce.core.ApplicationLayer.DTOModel.Generic_Response;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -30,7 +32,6 @@ namespace E_Commerce.api.APILayer.Controllers
 
 #region
         [HttpGet]
-        [AllowAnonymous]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(CategoryDTO), StatusCodes.Status200OK)]
         [SwaggerOperation(Summary = "Get all List", Description = "Get Category List")]
@@ -43,7 +44,6 @@ namespace E_Commerce.api.APILayer.Controllers
 #region
         [HttpDelete]      
         [Route("delete/{CategoryId}")]
-        [AllowAnonymous]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(CategoryDTO), StatusCodes.Status200OK)]
         [SwaggerOperation(Summary = "Delete Category", Description = "Delete specified category")]
@@ -53,5 +53,50 @@ namespace E_Commerce.api.APILayer.Controllers
             return Ok(temp);
         }
 #endregion
+
+#region
+
+        [HttpGet("CategoryName")]
+        [Route("GetCategoryByName/{CategoryName}")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
+        [SwaggerOperation(Summary = "Gets Category By Name", Description = "Checks if category exists")]
+        public IActionResult GetCategoryByName(string Name)
+        {
+            var category = _category.GetByCategoryName(Name);
+            return Ok(category);
+
+        }
+#endregion
+
+#region
+
+        [HttpPost("Add")]
+        [Route("Add")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
+        [SwaggerOperation(Summary = "Posts new category", Description = "Adds a new Category")]
+        public IActionResult AddCategory(CategoryAddDTO categoryDTO)
+        {
+            var response = _category.Post(categoryDTO);
+            return Ok(response);
+        }
+#endregion
+
+#region
+        [HttpPut("{id}")]
+        [Route("Edit/{CategoryId}")]
+        [SwaggerResponse(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
+        [SwaggerOperation(Summary = "Edits new category", Description = "Edits a new Category")]
+        public IActionResult EditCategory(int id, CategoryAddDTO categoryDTO)
+        {
+
+            var Updating = _category.Update(id, categoryDTO);
+            return Ok(Updating);
+
+        }
+#endregion
+
     }
 }

@@ -11,6 +11,8 @@ namespace E_Commerce.infrastructure.RepositoryLayer
         }
         public DbSet<LoginModel> Login { get; set; }
         public DbSet<CategoryModel> Category { get; set; }
+        public DbSet<BrandModel> Brand { get; set; }
+        
 
     }
 }

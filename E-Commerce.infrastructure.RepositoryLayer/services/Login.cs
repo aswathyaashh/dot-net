@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using E_Commerce.core.ApplicationLayer.DTOModel.Login;
-using E_Commerce.core.ApplicationLayer.Interface;
-using E_Commerce.core.DomainLayer.Entities;
-using Microsoft.Extensions.Configuration;
+using System.Text;
+using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
+using Microsoft.Extensions.Configuration;
+using E_Commerce.core.DomainLayer.Entities;
+using E_Commerce.core.ApplicationLayer.Interface;
+using E_Commerce.core.ApplicationLayer.DTOModel.Login;
 
 namespace E_Commerce.infrastructure.RepositoryLayer.services
 {
