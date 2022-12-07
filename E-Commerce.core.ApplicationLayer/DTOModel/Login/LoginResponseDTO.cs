@@ -2,9 +2,10 @@
 
 namespace E_Commerce.core.ApplicationLayer.DTOModel.Login
 {
-    public class LoginResponseDto : ApiResponse
+    public class LoginResponseDTO:ApiResponse<LoginDTO>
     {
-        public string Token { get; set; }            
-        public DateTime ExpiryDate { get; set; }  
+        public string Token { get; set; }
+        public DateTime ExpiryDate { get; set; }
+      
     }
 }

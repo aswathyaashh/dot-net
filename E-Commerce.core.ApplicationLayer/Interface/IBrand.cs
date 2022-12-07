@@ -1,5 +1,7 @@
-﻿using E_Commerce.core.ApplicationLayer.DTOModel.Brand;
+﻿using E_Commerce.core.ApplicationLayer.DTOModel;
+using E_Commerce.core.ApplicationLayer.DTOModel.Brand;
 using E_Commerce.core.ApplicationLayer.DTOModel.Generic_Response;
+using E_Commerce.core.DomainLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +12,8 @@ namespace E_Commerce.core.ApplicationLayer.Interface
 {
     public interface IBrand
     {
-        public BrandDTO Post(BrandDTO BrandName);
-        public ApiResponse GetByBrandName(string Name);
+        public Task<ApiResponse<BrandDTO>> Post(BrandDTO BrandName);
+        public ApiResponse<BrandDTO> GetByBrandName(string BrandName);
+        public Task<ApiResponse<BrandDTO>> Update(BrandDTO BrandId);
     }
 }

@@ -21,16 +21,16 @@ namespace E_Commerce.api.APILayer.Controllers
 
         [HttpPost("AdminLogin")]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(LoginResponseDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(LoginResponseDTO), StatusCodes.Status200OK)]
         [SwaggerOperation(Summary = "Get 2 values", Description = "Get Email and Password")]
 #region
-        public IActionResult LoginCheck([FromBody]LoginDto loginDto)
+        public IActionResult LoginCheck([FromBody]LoginDTO loginDto)
         {
             
             //LoginDto login = new LoginDto();
             //loginDto.EmailId;
             //login.Password = password;
-            LoginResponseDto response = _login.LoginCheck(loginDto);
+            LoginResponseDTO response = _login.LoginCheck(loginDto);
             return Ok(response);
            
         }

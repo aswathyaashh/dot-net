@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using System.Net.Mime;
 using E_Commerce.core.ApplicationLayer.DTOModel.Login;
 using Swashbuckle.AspNetCore.Annotations;
-using E_Commerce.core.ApplicationLayer.DTOModel.Category;
+//using E_Commerce.core.ApplicationLayer.DTOModel.Category;
 using E_Commerce.core.ApplicationLayer.DTOModel.Generic_Response;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -30,19 +30,21 @@ namespace E_Commerce.api.APILayer.Controllers
             _category = category;                       
         }
 
-#region
+        #region(GEt)
         [HttpGet]
+        [AllowAnonymous]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(CategoryDTO), StatusCodes.Status200OK)]
         [SwaggerOperation(Summary = "Get all List", Description = "Get Category List")]
-        public ActionResult<List<CategoryDTO>> Get()
+        public  ApiResponse<List<CategoryDTO>> Get()
         {                      
             return _category.Get();
         }
-#endregion
+        #endregion
 
 #region
-        [HttpDelete]      
+        [HttpDelete]
+        [AllowAnonymous]
         [Route("delete/{CategoryId}")]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(CategoryDTO), StatusCodes.Status200OK)]
@@ -57,9 +59,10 @@ namespace E_Commerce.api.APILayer.Controllers
 #region
 
         [HttpGet("CategoryName")]
+        [AllowAnonymous]
         [Route("GetCategoryByName/{CategoryName}")]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<CategoryDTO>), StatusCodes.Status200OK)]
         [SwaggerOperation(Summary = "Gets Category By Name", Description = "Checks if category exists")]
         public IActionResult GetCategoryByName(string Name)
         {
@@ -73,10 +76,12 @@ namespace E_Commerce.api.APILayer.Controllers
 
         [HttpPost("Add")]
         [Route("Add")]
+        [AllowAnonymous]
+
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<CategoryDTO>), StatusCodes.Status200OK)]
         [SwaggerOperation(Summary = "Posts new category", Description = "Adds a new Category")]
-        public IActionResult AddCategory(CategoryAddDTO categoryDTO)
+        public IActionResult AddCategory(CategoryDTO categoryDTO)
         {
             var response = _category.Post(categoryDTO);
             return Ok(response);
@@ -87,9 +92,9 @@ namespace E_Commerce.api.APILayer.Controllers
         [HttpPut("{id}")]
         [Route("Edit/{CategoryId}")]
         [SwaggerResponse(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<CategoryDTO>), StatusCodes.Status200OK)]
         [SwaggerOperation(Summary = "Edits new category", Description = "Edits a new Category")]
-        public IActionResult EditCategory(int id, CategoryAddDTO categoryDTO)
+        public IActionResult EditCategory(int id, CategoryDTO categoryDTO)
         {
 
             var Updating = _category.Update(id, categoryDTO);

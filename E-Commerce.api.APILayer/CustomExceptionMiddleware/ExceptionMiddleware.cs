@@ -34,7 +34,7 @@ namespace E_Commerce.api.APILayer.CustomExceptionMiddleware
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-            await context.Response.WriteAsync(new ApiResponse()
+            await context.Response.WriteAsync(new ApiResponse<ExceptionMiddleware>()
             {
                 Success = false,
                 Message = "An unexpected error occurred."

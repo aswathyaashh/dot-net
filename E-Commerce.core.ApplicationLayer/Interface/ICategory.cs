@@ -1,5 +1,5 @@
 ﻿using E_Commerce.core.ApplicationLayer.DTOModel;
-using E_Commerce.core.ApplicationLayer.DTOModel.Category;
+//using E_Commerce.core.ApplicationLayer.DTOModel.Category;
 using E_Commerce.core.ApplicationLayer.DTOModel.Generic_Response;
 using E_Commerce.core.DomainLayer;
 using E_Commerce.core.DomainLayer.Entities;
@@ -13,11 +13,11 @@ namespace E_Commerce.core.ApplicationLayer.Interface
 {
     public interface ICategory
     {
-      public List<CategoryDTO> Get();
-      public CategoryDTO Delete(int CategoryId);
-      public ApiResponse GetByCategoryName(string Name);
-      public ApiResponse Post(CategoryAddDTO categoryDTO);
-      public ApiResponse Update(int id, CategoryAddDTO categoryDTO);
+      public ApiResponse<List<CategoryDTO>> Get();
+      public ApiResponse<bool> Delete(int CategoryId);
+      public ApiResponse<bool> GetByCategoryName(string Name);
+      public ApiResponse<bool> Post(CategoryDTO categoryDTO);
+      public ApiResponse<bool> Update(int id, CategoryDTO categoryDTO);
 
     }
 }

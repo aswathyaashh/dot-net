@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿
 
 namespace E_Commerce.core.ApplicationLayer.DTOModel.Generic_Response
 {
-    public class ApiResponse
+    public class ApiResponse<T>
     {
         public bool Success { get; set; }=true;
-        public string Message { get; set; }
-        public override string ToString()
-        {
-            return JsonSerializer.Serialize(this);
-        }
+        public string Message { get; set; }       
+        public T Data { get; set; }
     }
 }

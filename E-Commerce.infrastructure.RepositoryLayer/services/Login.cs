@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using E_Commerce.core.DomainLayer.Entities;
 using E_Commerce.core.ApplicationLayer.Interface;
 using E_Commerce.core.ApplicationLayer.DTOModel.Login;
+using E_Commerce.core.ApplicationLayer.DTOModel.Generic_Response;
+using E_Commerce.core.ApplicationLayer.DTOModel;
 
 namespace E_Commerce.infrastructure.RepositoryLayer.services
 {
@@ -15,15 +17,16 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
         private readonly AdminDbContext _admincontext;
         private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
+
         public Login(AdminDbContext adminDbContext, IConfiguration iconfiguration, IMapper mapper)
         {
             _admincontext = adminDbContext;
             _configuration = iconfiguration;
             _mapper = mapper;
         }
-        public LoginResponseDto LoginCheck(LoginDto login)
+        public LoginResponseDTO LoginCheck(LoginDTO login)
         {
-            LoginDto loginModel = _mapper.Map<LoginModel, LoginDto>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
+            LoginDTO loginModel = _mapper.Map<LoginModel, LoginDTO>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
             if(loginModel != null)
             {
 
@@ -31,11 +34,11 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
                     if (loginModel.Password == login.Password)
 
                     {                       
-                        var check = _mapper.Map<LoginModel, LoginDto>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
-                        var modifyDate = _mapper.Map<LoginDto, LoginModel>(check);
+                        var check = _mapper.Map<LoginModel, LoginDTO>(_admincontext.Login.FirstOrDefault(i => i.EmailId == login.EmailId));
+                        var modifyDate = _mapper.Map<LoginDTO, LoginModel>(check);
                         modifyDate.ModifiedDate = DateTime.Now;
                         _admincontext.SaveChanges();
-                        return new LoginResponseDto()
+                        return new LoginResponseDTO()
                         {
                             Success = true,
                             Message = "Success",
@@ -45,7 +48,7 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
                     }
                     else
                     {
-                        return new LoginResponseDto()
+                        return new LoginResponseDTO()
                         {
                             Success = false,
                             Message = "Password is incorrect"
@@ -59,7 +62,7 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
 
              else 
                   {
-                    return new LoginResponseDto()
+                    return new LoginResponseDTO()
                     {
                         Success = false,
                         Message = "Email Incorrect"
@@ -77,7 +80,7 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        private string CreateToken(LoginDto user)
+        private string CreateToken(LoginDTO user)
         {
             List<Claim> claims = new List<Claim>
             {

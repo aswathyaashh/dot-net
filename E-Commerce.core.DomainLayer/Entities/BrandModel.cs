@@ -18,10 +18,12 @@ namespace E_Commerce.core.DomainLayer.Entities
         [Column(Order = 1)]
         [StringLength(30, MinimumLength = 3)]
         public string BrandName { get; set; }
+        [NotMapped]
+        public IFormFile Logo { get; set; } 
 
         [Column(Order = 2)]
         public string LogoPath { get; set; }
-
+        
         
         [Column(Order = 3)]
         public int Status { get; set; }
