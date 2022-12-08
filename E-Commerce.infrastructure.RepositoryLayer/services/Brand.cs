@@ -1,23 +1,10 @@
 ﻿using AutoMapper;
-using E_Commerce.core.ApplicationLayer.DTOModel;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using E_Commerce.core.DomainLayer.Entities;
+using E_Commerce.core.ApplicationLayer.Interface;
 using E_Commerce.core.ApplicationLayer.DTOModel.Brand;
 using E_Commerce.core.ApplicationLayer.DTOModel.Generic_Response;
-using E_Commerce.core.ApplicationLayer.Interface;
-using E_Commerce.core.DomainLayer.Entities;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
-using NPOI.SS.Formula.Functions;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace E_Commerce.infrastructure.RepositoryLayer.services
 {
@@ -117,28 +104,44 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
         }
         #endregion
 
-
-
         #region(Update)
+        /// <summary>  
+        ///  Update brand  
+        /// </summary>  
+        /// <param Edit brand name and logo path</param>
         public async Task<ApiResponse<bool>> Update(BrandDTO BrandId)
         {
-            BrandModel updateData = _adminDbContext.Brand.FirstOrDefault(i => i.BrandId == BrandId.BrandId);
+            var updateData = _adminDbContext.Brand.FirstOrDefault(i => i.BrandId == BrandId.BrandId);
             ApiResponse<bool> updateResponse = new ApiResponse<bool>();
             if (updateData != null)
             {
                 if (updateData.Status == 0)
                 {
+                    
+                    if (BrandId.BrandName == null)
+                    {
+                        updateData.BrandName = updateData.BrandName;
+                    }
+                    else
+                    {
+                        updateData.BrandName = BrandId.BrandName;
 
-                    updateData.BrandName = BrandId.BrandName;
-                    updateData.LogoPath = await SaveLogo(updateData.Logo);
-                   // updateData.LogoPath = BrandId.LogoPath;
+                    }
+                    if (BrandId.Logo==null)
+                    {
+                        updateData.LogoPath = updateData.LogoPath;
+                    }
+                    else
+                    {
+                        updateData.LogoPath = await SaveLogo(BrandId.Logo);
+
+                    }
                     updateResponse.Success = true;
-                    updateResponse.Message = "updated";                    
-                    updateData.LogoPath = await SaveLogo(BrandId.Logo);
+                    updateResponse.Message = "updated";
+                    updateData.UpdatedDate = DateTime.Now;                    
                     _adminDbContext.Brand.Update(updateData);
                     _adminDbContext.SaveChanges();
                     return updateResponse;
-
                 }
                 else
                 {
@@ -154,7 +157,6 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
                 return updateResponse;
             }
         }
-
         #endregion
     }
 }
