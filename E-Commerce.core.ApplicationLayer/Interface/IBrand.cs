@@ -12,8 +12,10 @@ namespace E_Commerce.core.ApplicationLayer.Interface
 {
     public interface IBrand
     {
-        public Task<ApiResponse<BrandDTO>> Post(BrandDTO BrandName);
-        public ApiResponse<BrandDTO> GetByBrandName(string BrandName);
-        public Task<ApiResponse<BrandDTO>> Update(BrandDTO BrandId);
+        //public ApiResponse<BrandDTO> GetByBrandName(string BrandName);
+        //public Task<ApiResponse<BrandDTO>> Update(BrandDTO BrandId);
+        public  Task<ApiResponse<bool>> Post(BrandDTO brandName);
+        public ApiResponse<string> GetByBrandName(string name);
+        public Task<ApiResponse<bool>> Update(BrandDTO brandId);
     }
 }

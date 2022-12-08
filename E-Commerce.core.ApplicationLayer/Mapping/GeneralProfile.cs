@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using E_Commerce.core.ApplicationLayer.DTOModel.Brand;
-using E_Commerce.core.ApplicationLayer.DTOModel.Generic_Response;
-using E_Commerce.core.ApplicationLayer.DTOModel.Login;
 using E_Commerce.core.DomainLayer.Entities;
+using E_Commerce.core.ApplicationLayer.DTOModel.Brand;
+using E_Commerce.core.ApplicationLayer.DTOModel.Login;
+
 
 namespace E_Commerce.core.ApplicationLayer.DTOModel.Helpers
 {
@@ -10,12 +10,12 @@ namespace E_Commerce.core.ApplicationLayer.DTOModel.Helpers
     {
         public GeneralProfile()
         {
-            CreateMap<CategoryModel, CategoryDTO>().ReverseMap();
             CreateMap<LoginModel, LoginDTO>().ReverseMap();
+
             CreateMap<BrandModel, BrandDTO>().ReverseMap();
-            CreateMap<List<CategoryModel>, ApiResponse<List<CategoryDTO>>>().ReverseMap();
 
-
+            CreateMap<CategoryModel, CategoryDTO>().ReverseMap();    
+            
         }
     }
 }

@@ -13,6 +13,7 @@ using NPOI.SS.Formula.Functions;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
@@ -20,12 +21,12 @@ using System.Threading.Tasks;
 
 namespace E_Commerce.infrastructure.RepositoryLayer.services
 {
-    public class Brand:IBrand
+    public class Brand : IBrand
     {
         private readonly AdminDbContext _adminDbContext;
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _hostEnvironment;
-        ApiResponse<BrandDTO> check = new ApiResponse<BrandDTO>();
+
         public Brand(AdminDbContext adminDbContext, IMapper mapper, IWebHostEnvironment hostEnvironment)
         {
             _adminDbContext = adminDbContext;
@@ -33,75 +34,83 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
             this._hostEnvironment = hostEnvironment;
         }
 
-#region
+        #region(Post)
         /// <summary>  
         ///  Create brand  
         /// </summary>  
         /// <param Create brand name and logo path</param>
-        public  async Task<ApiResponse<BrandDTO>> Post(BrandDTO Brand)  
-        {           
-            var brand = _mapper.Map<BrandDTO, BrandModel>(Brand);
-            brand.LogoPath =await SaveLogo(brand.Logo);
-            brand.CreatedDate = DateTime.Now;
-            _adminDbContext.Brand.Add(brand);
-            _adminDbContext.SaveChanges();           
-            var Brand1 = _mapper.Map<BrandModel,BrandDTO>(brand);
-            //Brand1.Success=true;
-            //Brand1.Message = "created";           
-            //return Brand1;
-            check.Success = true;
-            check.Message = "created";
-            return check;
+        public async Task<ApiResponse<bool>> Post(BrandDTO brandName)
+        {
+            var brand = _mapper.Map<BrandDTO, BrandModel>(brandName);
+            ApiResponse<bool> addResponse = new ApiResponse<bool>();
+            if (brand != null)
+            {
+                brand.LogoPath = await SaveLogo(brand.Logo);
+                brand.CreatedDate = DateTime.Now;
+                _adminDbContext.Brand.Add(brand);
+                _adminDbContext.SaveChanges();
+                addResponse.Success = true;
+                addResponse.Message = "New Brand created";
+                return addResponse;
+            }
+            else
+            {
+                addResponse.Success = false;
+                addResponse.Message = "Not created";
+                return addResponse;
+            }
+
         }
-#endregion
-#region
+        #endregion
+
+        #region(Function for Uploading logo)
         /// <summary>  
         /// Function for upload brand logo  
         /// </summary>  
         /// <param Upload a brand logo with current datetime in logopath</param>
         public async Task<string> SaveLogo(IFormFile logo)
         {
-           
-            string logopath = new String(Path.GetFileNameWithoutExtension(logo.FileName).Take(10).ToArray()).Replace(' ', '-');
-            logopath = logopath + DateTime.Now.ToString("yyyyMMmmfff") + Path.GetExtension(logo.FileName);
-            var path = Path.Combine(_hostEnvironment.ContentRootPath, "Images", logopath);
+
+            string logoPath = new String(Path.GetFileNameWithoutExtension(logo.FileName).Take(10).ToArray()).Replace(' ', '-');
+            logoPath = logoPath + DateTime.Now.ToString("yyyyMMddhhmmfff") + Path.GetExtension(logo.FileName);
+            var path = Path.Combine(_hostEnvironment.ContentRootPath, "Images", logoPath);
             using (var filestream = new FileStream(path, FileMode.Create))
             {
                 await logo.CopyToAsync(filestream);
             }
-            return logopath;
+            return logoPath;
         }
-#endregion
+        #endregion
 
-#region
+        #region(Get Brand by Name)
         /// <summary>  
-        ///  Get Brand  
+        /// Get brand by name  
         /// </summary>  
-        /// <param Get Brand by name</param>
-        public ApiResponse<BrandDTO> GetByBrandName(string BrandName)
+        /// <param Display brand exist if it is in database otherwise doesnt exist</param>
+        public ApiResponse<string> GetByBrandName(string name)
         {
-            var brandname = _adminDbContext.Brand.FirstOrDefault(e => e.BrandName == BrandName);
-            //ApiResponse check = new ApiResponse();
-            if (brandname != null)
+            var brandName = _adminDbContext.Brand.FirstOrDefault(e => e.BrandName == name);
+            ApiResponse<string> response = new ApiResponse<string>();
+            if (brandName != null)
             {
-                if (brandname.Status == 0)
+                if (brandName.Status == 0)
                 {
-                    check.Success = true;
-                    check.Message = "Brand exists";
-                    return check;
+                    response.Success = true;
+                    response.Message = "Brand exists";
+                    return response;
                 }
                 else
                 {
-                    check.Success = false;
-                    check.Message = "Brand doesnt exists";
-                    return check;
+                    response.Success = false;
+                    response.Message = "Brand doesnt exists";
+                    return response;
                 }
             }
             else
             {
-                check.Success = false;
-                check.Message = "Brand doesnt exists";
-                return check;
+                response.Success = false;
+                response.Message = "Brand doesnt exists";
+                return response;
 
             }
 
@@ -110,39 +119,39 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
 
 
 
-        #region
-
-        public async Task<ApiResponse<BrandDTO>> Update(BrandDTO BrandId)
+        #region(Update)
+        public async Task<ApiResponse<bool>> Update(BrandDTO BrandId)
         {
-            BrandModel brand = _adminDbContext.Brand.FirstOrDefault(i => i.BrandId == BrandId.BrandId);
-            //ApiResponse check = new ApiResponse();
-            if (brand != null)
+            BrandModel updateData = _adminDbContext.Brand.FirstOrDefault(i => i.BrandId == BrandId.BrandId);
+            ApiResponse<bool> updateResponse = new ApiResponse<bool>();
+            if (updateData != null)
             {
-                if (brand.Status == 0)
+                if (updateData.Status == 0)
                 {
 
-                    brand.BrandName = BrandId.BrandName;
-                    brand.LogoPath = BrandId.LogoPath;
-                    check.Success = true;
-                    check.Message = "updated";
-                    brand.LogoPath = await SaveLogo(BrandId.Logo);
-                    _adminDbContext.Brand.Update(brand);
+                    updateData.BrandName = BrandId.BrandName;
+                    updateData.LogoPath = await SaveLogo(updateData.Logo);
+                   // updateData.LogoPath = BrandId.LogoPath;
+                    updateResponse.Success = true;
+                    updateResponse.Message = "updated";                    
+                    updateData.LogoPath = await SaveLogo(BrandId.Logo);
+                    _adminDbContext.Brand.Update(updateData);
                     _adminDbContext.SaveChanges();
-                    return check;
+                    return updateResponse;
 
                 }
                 else
                 {
-                    check.Success = false;
-                    check.Message = " Not updated";
-                    return check;
+                    updateResponse.Success = false;
+                    updateResponse.Message = " Not updated";
+                    return updateResponse;
                 }
             }
             else
             {
-                check.Success = false;
-                check.Message = "Null";
-                return check;
+                updateResponse.Success = false;
+                updateResponse.Message = "Null";
+                return updateResponse;
             }
         }
 
