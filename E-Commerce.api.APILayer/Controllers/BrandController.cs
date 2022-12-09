@@ -4,6 +4,7 @@ using Swashbuckle.AspNetCore.Annotations;
 using E_Commerce.core.ApplicationLayer.Interface;
 using E_Commerce.core.ApplicationLayer.DTOModel.Brand;
 using E_Commerce.core.ApplicationLayer.DTOModel.Generic_Response;
+using E_Commerce.core.ApplicationLayer.DTOModel;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -22,7 +23,24 @@ namespace E_Commerce.api.APILayer.Controllers
             _brand = brand;
            
         }
+        #region(Get)
 
+        /// <summary>  
+        /// API to Get all data  
+        /// </summary>  
+        /// <returns>API for calling function to list Brand with their id</returns>  
+        [HttpGet]
+        [Route("get")]
+        [AllowAnonymous]
+        [SwaggerResponse(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(BrandDTO), StatusCodes.Status200OK)]
+        [SwaggerOperation(Summary = "Get all List", Description = "Get Brand List")]
+        public ApiResponse<List<BrandDTO>> Get()
+        {
+            return _brand.Get();
+        }
+
+        #endregion
         #region(Post)
         /// <summary>  
         ///  API for Adding Brand   

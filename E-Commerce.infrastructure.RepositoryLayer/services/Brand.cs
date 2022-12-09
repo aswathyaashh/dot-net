@@ -5,6 +5,7 @@ using E_Commerce.core.DomainLayer.Entities;
 using E_Commerce.core.ApplicationLayer.Interface;
 using E_Commerce.core.ApplicationLayer.DTOModel.Brand;
 using E_Commerce.core.ApplicationLayer.DTOModel.Generic_Response;
+using E_Commerce.core.ApplicationLayer.DTOModel;
 
 namespace E_Commerce.infrastructure.RepositoryLayer.services
 {
@@ -20,6 +21,32 @@ namespace E_Commerce.infrastructure.RepositoryLayer.services
             _mapper = mapper;
             this._hostEnvironment = hostEnvironment;
         }
+
+        #region(Get Brand)
+        /// <summary>  
+        /// Gets all data  
+        /// </summary>  
+        /// <returns>collection of brands.</returns>  
+        public ApiResponse<List<BrandDTO>> Get()
+        {
+            ApiResponse<List<BrandDTO>> response = new ApiResponse<List<BrandDTO>>();
+            var value = _mapper.Map<List<BrandModel>, List<BrandDTO>>(_adminDbContext.Brand.Where(e => e.Status == 0).ToList());
+            if (value != null && value.Count > 0)
+            {
+                response.Message = "Listed";
+                response.Success = true;
+                response.Data = value;
+                return response;
+            }
+            else
+            {
+                response.Message = "Null";
+                response.Success = false;
+                return response;
+            }
+
+        }
+        #endregion
 
         #region(Post)
         /// <summary>  
