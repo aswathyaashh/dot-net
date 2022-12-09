@@ -1,28 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Teamproject\\asp.net\\TestProject-Ecommerce\\TestProject-Ecommerce.csproj": {}
+    "D:\\TeamProject\\DotNet\\TestProject-Ecommerce\\TestProject-Ecommerce.csproj": {}
   },
   "projects": {
-    "D:\\Teamproject\\asp.net\\E-Commerce.core.ApplicationLayer\\E-Commerce.core.ApplicationLayer.csproj": {
+    "D:\\TeamProject\\DotNet\\E-Commerce.core.ApplicationLayer\\E-Commerce.core.ApplicationLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Teamproject\\asp.net\\E-Commerce.core.ApplicationLayer\\E-Commerce.core.ApplicationLayer.csproj",
+        "projectUniqueName": "D:\\TeamProject\\DotNet\\E-Commerce.core.ApplicationLayer\\E-Commerce.core.ApplicationLayer.csproj",
         "projectName": "E-Commerce.core.ApplicationLayer",
-        "projectPath": "D:\\Teamproject\\asp.net\\E-Commerce.core.ApplicationLayer\\E-Commerce.core.ApplicationLayer.csproj",
-        "packagesPath": "C:\\Users\\mfathima\\.nuget\\packages\\",
-        "outputPath": "D:\\Teamproject\\asp.net\\E-Commerce.core.ApplicationLayer\\obj\\",
+        "projectPath": "D:\\TeamProject\\DotNet\\E-Commerce.core.ApplicationLayer\\E-Commerce.core.ApplicationLayer.csproj",
+        "packagesPath": "C:\\Users\\asashok\\.nuget\\packages\\",
+        "outputPath": "D:\\TeamProject\\DotNet\\E-Commerce.core.ApplicationLayer\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\mfathima\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\asashok\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -35,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Teamproject\\asp.net\\E-Commerce.core.DomainLayer\\E-Commerce.core.DomainLayer.csproj": {
-                "projectPath": "D:\\Teamproject\\asp.net\\E-Commerce.core.DomainLayer\\E-Commerce.core.DomainLayer.csproj"
+              "D:\\TeamProject\\DotNet\\E-Commerce.core.DomainLayer\\E-Commerce.core.DomainLayer.csproj": {
+                "projectPath": "D:\\TeamProject\\DotNet\\E-Commerce.core.DomainLayer\\E-Commerce.core.DomainLayer.csproj"
               }
             }
           }
@@ -102,29 +95,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Teamproject\\asp.net\\E-Commerce.core.DomainLayer\\E-Commerce.core.DomainLayer.csproj": {
+    "D:\\TeamProject\\DotNet\\E-Commerce.core.DomainLayer\\E-Commerce.core.DomainLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Teamproject\\asp.net\\E-Commerce.core.DomainLayer\\E-Commerce.core.DomainLayer.csproj",
+        "projectUniqueName": "D:\\TeamProject\\DotNet\\E-Commerce.core.DomainLayer\\E-Commerce.core.DomainLayer.csproj",
         "projectName": "E-Commerce.core.DomainLayer",
-        "projectPath": "D:\\Teamproject\\asp.net\\E-Commerce.core.DomainLayer\\E-Commerce.core.DomainLayer.csproj",
-        "packagesPath": "C:\\Users\\mfathima\\.nuget\\packages\\",
-        "outputPath": "D:\\Teamproject\\asp.net\\E-Commerce.core.DomainLayer\\obj\\",
+        "projectPath": "D:\\TeamProject\\DotNet\\E-Commerce.core.DomainLayer\\E-Commerce.core.DomainLayer.csproj",
+        "packagesPath": "C:\\Users\\asashok\\.nuget\\packages\\",
+        "outputPath": "D:\\TeamProject\\DotNet\\E-Commerce.core.DomainLayer\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\mfathima\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\asashok\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -210,29 +196,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Teamproject\\asp.net\\E-Commerce.infrastructure.RepositoryLayer\\E-Commerce.infrastructure.RepositoryLayer.csproj": {
+    "D:\\TeamProject\\DotNet\\E-Commerce.infrastructure.RepositoryLayer\\E-Commerce.infrastructure.RepositoryLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Teamproject\\asp.net\\E-Commerce.infrastructure.RepositoryLayer\\E-Commerce.infrastructure.RepositoryLayer.csproj",
+        "projectUniqueName": "D:\\TeamProject\\DotNet\\E-Commerce.infrastructure.RepositoryLayer\\E-Commerce.infrastructure.RepositoryLayer.csproj",
         "projectName": "E-Commerce.infrastructure.RepositoryLayer",
-        "projectPath": "D:\\Teamproject\\asp.net\\E-Commerce.infrastructure.RepositoryLayer\\E-Commerce.infrastructure.RepositoryLayer.csproj",
-        "packagesPath": "C:\\Users\\mfathima\\.nuget\\packages\\",
-        "outputPath": "D:\\Teamproject\\asp.net\\E-Commerce.infrastructure.RepositoryLayer\\obj\\",
+        "projectPath": "D:\\TeamProject\\DotNet\\E-Commerce.infrastructure.RepositoryLayer\\E-Commerce.infrastructure.RepositoryLayer.csproj",
+        "packagesPath": "C:\\Users\\asashok\\.nuget\\packages\\",
+        "outputPath": "D:\\TeamProject\\DotNet\\E-Commerce.infrastructure.RepositoryLayer\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\mfathima\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\asashok\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -245,8 +224,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Teamproject\\asp.net\\E-Commerce.core.ApplicationLayer\\E-Commerce.core.ApplicationLayer.csproj": {
-                "projectPath": "D:\\Teamproject\\asp.net\\E-Commerce.core.ApplicationLayer\\E-Commerce.core.ApplicationLayer.csproj"
+              "D:\\TeamProject\\DotNet\\E-Commerce.core.ApplicationLayer\\E-Commerce.core.ApplicationLayer.csproj": {
+                "projectPath": "D:\\TeamProject\\DotNet\\E-Commerce.core.ApplicationLayer\\E-Commerce.core.ApplicationLayer.csproj"
               }
             }
           }
@@ -326,29 +305,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Teamproject\\asp.net\\TestProject-Ecommerce\\TestProject-Ecommerce.csproj": {
+    "D:\\TeamProject\\DotNet\\TestProject-Ecommerce\\TestProject-Ecommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Teamproject\\asp.net\\TestProject-Ecommerce\\TestProject-Ecommerce.csproj",
+        "projectUniqueName": "D:\\TeamProject\\DotNet\\TestProject-Ecommerce\\TestProject-Ecommerce.csproj",
         "projectName": "TestProject-Ecommerce",
-        "projectPath": "D:\\Teamproject\\asp.net\\TestProject-Ecommerce\\TestProject-Ecommerce.csproj",
-        "packagesPath": "C:\\Users\\mfathima\\.nuget\\packages\\",
-        "outputPath": "D:\\Teamproject\\asp.net\\TestProject-Ecommerce\\obj\\",
+        "projectPath": "D:\\TeamProject\\DotNet\\TestProject-Ecommerce\\TestProject-Ecommerce.csproj",
+        "packagesPath": "C:\\Users\\asashok\\.nuget\\packages\\",
+        "outputPath": "D:\\TeamProject\\DotNet\\TestProject-Ecommerce\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\mfathima\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\asashok\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -361,11 +333,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Teamproject\\asp.net\\E-Commerce.core.DomainLayer\\E-Commerce.core.DomainLayer.csproj": {
-                "projectPath": "D:\\Teamproject\\asp.net\\E-Commerce.core.DomainLayer\\E-Commerce.core.DomainLayer.csproj"
+              "D:\\TeamProject\\DotNet\\E-Commerce.core.DomainLayer\\E-Commerce.core.DomainLayer.csproj": {
+                "projectPath": "D:\\TeamProject\\DotNet\\E-Commerce.core.DomainLayer\\E-Commerce.core.DomainLayer.csproj"
               },
-              "D:\\Teamproject\\asp.net\\E-Commerce.infrastructure.RepositoryLayer\\E-Commerce.infrastructure.RepositoryLayer.csproj": {
-                "projectPath": "D:\\Teamproject\\asp.net\\E-Commerce.infrastructure.RepositoryLayer\\E-Commerce.infrastructure.RepositoryLayer.csproj"
+              "D:\\TeamProject\\DotNet\\E-Commerce.infrastructure.RepositoryLayer\\E-Commerce.infrastructure.RepositoryLayer.csproj": {
+                "projectPath": "D:\\TeamProject\\DotNet\\E-Commerce.infrastructure.RepositoryLayer\\E-Commerce.infrastructure.RepositoryLayer.csproj"
               }
             }
           }
@@ -437,7 +409,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
